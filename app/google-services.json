@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "921001401496",
+    "project_id": "sporting-user",
+    "storage_bucket": "sporting-user.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:921001401496:android:210bd7905b08061f5f84ed",
+        "android_client_info": {
+          "package_name": "com.example.sporting"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBLTueMrgj7amaunaf4QPiURP4ZrpnjdUI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
