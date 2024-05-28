@@ -9,6 +9,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -23,7 +25,7 @@ public class CheckHealth extends Fragment {
     private TextView userName3;
     private Button getResult;
 
-    private EditText inputOccultBlood;
+    private RadioGroup occultBloodGroup;
     private EditText inputpH;
     private EditText inputProtein;
     private EditText inputGlucose;
@@ -44,8 +46,10 @@ public class CheckHealth extends Fragment {
         userName3 = view.findViewById(R.id.userName3);
         getResult = view.findViewById(R.id.getResult);
 
+        // RadioGroup 연결
+        occultBloodGroup = view.findViewById(R.id.occultBloodGroup);
+
         // EditText 연결
-        inputOccultBlood = view.findViewById(R.id.inputOccultBlood);
         inputpH = view.findViewById(R.id.inputpH);
         inputProtein = view.findViewById(R.id.inputProtein);
         inputGlucose = view.findViewById(R.id.inputGlucose);
@@ -83,12 +87,18 @@ public class CheckHealth extends Fragment {
         getResult.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                // RadioButton 선택된 값 가져오기
+                int selectedId = occultBloodGroup.getCheckedRadioButtonId();
+                RadioButton selectedRadioButton = view.findViewById(selectedId);
+                String occultBlood = (selectedRadioButton != null) ? selectedRadioButton.getText().toString() : "";
+
                 // EditText 값 가져오기
-                String occultBlood = inputOccultBlood.getText().toString();
                 String pH = inputpH.getText().toString();
                 String protein = inputProtein.getText().toString();
                 String glucose = inputGlucose.getText().toString();
                 String ketone = inputKetone.getText().toString();
+
+                String userName = userName2.getText().toString();
 
                 // ReportAlgorithm 액티비티 시작
                 Intent intent = new Intent(getActivity(), ReportAlgorithm.class);
@@ -97,6 +107,7 @@ public class CheckHealth extends Fragment {
                 intent.putExtra("protein", protein);
                 intent.putExtra("glucose", glucose);
                 intent.putExtra("ketone", ketone);
+                intent.putExtra("userName", userName); // 사용자 이름 추가
                 startActivity(intent);
             }
         });

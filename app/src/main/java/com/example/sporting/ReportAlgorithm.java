@@ -15,6 +15,7 @@ public class ReportAlgorithm extends AppCompatActivity {
     private TextView glucoseTextView;
     private TextView ketoneTextView;
     private Button backButton;
+    private TextView userNameReportTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +23,7 @@ public class ReportAlgorithm extends AppCompatActivity {
         setContentView(R.layout.health_report); // health_report.xml 레이아웃 설정
 
         // TextView 연결
+        userNameReportTextView = findViewById(R.id.userNameReport); // 추가된 부분
         occultBloodTextView = findViewById(R.id.ResultOccultBlood);
         pHTextView = findViewById(R.id.ResultpH);
         proteinTextView = findViewById(R.id.ResultProtein);
@@ -30,15 +32,21 @@ public class ReportAlgorithm extends AppCompatActivity {
 
         // Intent로부터 값 받기
         Intent intent = getIntent();
+        String userName = intent.getStringExtra("userName"); // 추가된 부분
         String occultBloodStr = intent.getStringExtra("occultBlood");
         String pHStr = intent.getStringExtra("pH");
         String proteinStr = intent.getStringExtra("protein");
         String glucoseStr = intent.getStringExtra("glucose");
         String ketoneStr = intent.getStringExtra("ketone");
 
-        // 값을 2로 나눈 후 TextView에 설정
+        // userNameReportTextView에 값 설정 (추가된 부분)
+        if (userName != null) {
+            userNameReportTextView.setText(userName);
+        }
+
+        // 값을 "정상" 또는 "비정상"으로 설정
         if (occultBloodStr != null) {
-            if (occultBloodStr.equals("negative")) {
+            if (occultBloodStr.equals("음성")) {
                 occultBloodTextView.setText("정상");
             } else {
                 occultBloodTextView.setText("비정상");

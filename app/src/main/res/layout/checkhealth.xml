@@ -11,6 +11,7 @@
         android:orientation="horizontal">
 
         <TextView
+            android:textStyle="bold"
             android:id="@+id/userName1"
             android:text="홍길동"
             android:layout_width="wrap_content"
@@ -50,6 +51,7 @@
 
             </TextView>
             <TextView
+                android:textStyle="bold"
                 android:id="@+id/userName2"
                 android:textSize="25dp"
                 android:layout_width="wrap_content"
@@ -165,12 +167,26 @@
             android:layout_height="wrap_content"
             android:text="혈뇨 수치 입력">
         </TextView>
-        <EditText
-            android:id="@+id/inputOccultBlood"
-            android:layout_width="200dp"
+        <RadioGroup
+            android:id="@+id/occultBloodGroup"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:hint="Input occult blood">
-        </EditText>
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:text="양성"
+                android:id="@+id/Positive"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+            </RadioButton>
+            <RadioButton
+                android:layout_marginLeft="20dp"
+                android:text="음성"
+                android:id="@+id/Negative"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+            </RadioButton>
+        </RadioGroup>
 
     </LinearLayout>
 
