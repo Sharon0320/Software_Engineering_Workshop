@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
@@ -16,7 +17,7 @@ public class UserInfo extends Fragment {
     private EditText NameEdit;
     private TextView NameView;
     private Button SaveName;
-    private Button ChangeName;
+    private ImageButton ChangeName;
     private Button back;
     private String newName;
     private SharedPreferences sh_Pref;
@@ -24,17 +25,14 @@ public class UserInfo extends Fragment {
 
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.userinfo, container, false);
-
 
 
         NameEdit = view.findViewById(R.id.NameEdit);
         NameView = view.findViewById(R.id.userName);
         SaveName = view.findViewById(R.id.SaveName);
         ChangeName = view.findViewById(R.id.changeName);
-        back = view.findViewById(R.id.BackButton);
 
         applySharedPreference(view.getContext());
 

@@ -16,14 +16,6 @@
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
 
 
-        <Button
-            android:id="@+id/BackButton"
-            android:textSize="20dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="뒤로">
-
-        </Button>
 
 
         <TextView
@@ -84,24 +76,25 @@
             android:layout_height="0dp"
             android:layout_weight="1"
             />
-        <Button
+
+        <ImageButton
             android:id="@+id/changeName"
             android:layout_gravity="center"
             android:layout_margin="20dp"
-            android:textSize="10dp"
-            android:text="ch"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+            android:src="@drawable/arrow_right_solid"
+            android:background="@android:color/transparent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:visibility="visible">
-        </Button>
+        </ImageButton>
 
         <Button
             android:id="@+id/SaveName"
             android:layout_gravity="center"
             android:layout_margin="20dp"
-            android:textSize="10dp"
-            android:text="sv"
-            android:layout_width="40dp"
+            android:textSize="10sp"
+            android:text="save"
+            android:layout_width="70dp"
             android:layout_height="40dp"
             android:visibility="gone">
         </Button>
