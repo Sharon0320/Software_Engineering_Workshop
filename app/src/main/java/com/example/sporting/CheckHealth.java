@@ -18,6 +18,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentResultListener;
+import androidx.fragment.app.FragmentTransaction;
 
 public class CheckHealth extends Fragment {
     private TextView userName1;
@@ -100,6 +101,24 @@ public class CheckHealth extends Fragment {
 
                 String userName = userName2.getText().toString();
 
+                // Create a bundle to pass data
+                Bundle bundle = new Bundle();
+                bundle.putString("occultBlood", occultBlood);
+                bundle.putString("pH", pH);
+                bundle.putString("protein", protein);
+                bundle.putString("glucose", glucose);
+                bundle.putString("ketone", ketone);
+                bundle.putString("userName", userName);
+
+                // Create an instance of RecordPage and set the arguments
+                RecordPage recordPage = new RecordPage();
+                recordPage.setArguments(bundle);
+
+                // Begin the transaction and replace the current fragment with RecordPage
+                FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
+                transaction.addToBackStack(null);
+                transaction.commit();
+
                 // ReportAlgorithm 액티비티 시작
                 Intent intent = new Intent(getActivity(), ReportAlgorithm.class);
                 intent.putExtra("occultBlood", occultBlood);
@@ -109,6 +128,8 @@ public class CheckHealth extends Fragment {
                 intent.putExtra("ketone", ketone);
                 intent.putExtra("userName", userName); // 사용자 이름 추가
                 startActivity(intent);
+
+
             }
         });
     }

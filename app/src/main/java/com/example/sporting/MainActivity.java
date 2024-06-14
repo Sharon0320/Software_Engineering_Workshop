@@ -12,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.viewpager.widget.ViewPager;
 
 import com.google.android.material.tabs.TabLayout;
@@ -86,6 +87,8 @@ public class MainActivity extends AppCompatActivity {
         Button firstButton = findViewById(R.id.firstButton);
         Button secondButton = findViewById(R.id.secondButton);
         Button thirdButton = findViewById(R.id.thirdButton);
+        Button fourthButton = findViewById(R.id.fourthButton);
+
 
         firstButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -108,15 +111,30 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        fourthButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                viewPager.setCurrentItem(3);
+            }
+        });
+
+
+        if (savedInstanceState == null) {
+            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+            transaction.commit();
+        }
 
 
     }
+
+
 
     private void setupViewPager(ViewPager viewPager) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
         adapter.addFragment(new UserInfo(), "첫 번째");
         adapter.addFragment(new CheckHealth(), "두 번째");
         adapter.addFragment(new RecordPage(), "세 번째");
+        adapter.addFragment(new CommunityPage(), "네 번째");
         viewPager.setAdapter(adapter);
     }
 }

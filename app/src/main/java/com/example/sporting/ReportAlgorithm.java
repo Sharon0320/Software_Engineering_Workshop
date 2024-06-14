@@ -20,10 +20,10 @@ public class ReportAlgorithm extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.health_report); // health_report.xml 레이아웃 설정
+        setContentView(R.layout.health_report);
 
         // TextView 연결
-        userNameReportTextView = findViewById(R.id.userNameReport); // 추가된 부분
+        userNameReportTextView = findViewById(R.id.userNameReport);
         occultBloodTextView = findViewById(R.id.ResultOccultBlood);
         pHTextView = findViewById(R.id.ResultpH);
         proteinTextView = findViewById(R.id.ResultProtein);
@@ -32,14 +32,14 @@ public class ReportAlgorithm extends AppCompatActivity {
 
         // Intent로부터 값 받기
         Intent intent = getIntent();
-        String userName = intent.getStringExtra("userName"); // 추가된 부분
+        String userName = intent.getStringExtra("userName");
         String occultBloodStr = intent.getStringExtra("occultBlood");
         String pHStr = intent.getStringExtra("pH");
         String proteinStr = intent.getStringExtra("protein");
         String glucoseStr = intent.getStringExtra("glucose");
         String ketoneStr = intent.getStringExtra("ketone");
 
-        // userNameReportTextView에 값 설정 (추가된 부분)
+        // userNameReportTextView에 값 설정
         if (userName != null) {
             userNameReportTextView.setText(userName);
         }

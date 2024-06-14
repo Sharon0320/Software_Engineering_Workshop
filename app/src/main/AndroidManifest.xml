@@ -30,6 +30,7 @@
         </activity>
 
         <activity android:name=".ReportAlgorithm" />
+        <activity android:name=".RecordActivity"/>
 
     </application>
 
